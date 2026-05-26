@@ -4,23 +4,29 @@
 
 #include "uni5817.dtsi"
 
-&kscan {
-    compatible = "zmk,kscan-gpio-matrix";
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
 
-    diode-direction = "col2row";
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
 
-    row-gpios
-        = <&pro_micro 24 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 22 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 20 GPIO_ACTIVE_HIGH>
-        ;
+        diode-direction = "col2row";
 
-    col-gpios
-        = <&pro_micro 104 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 100 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 29 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 115 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 113 GPIO_ACTIVE_HIGH>
-        , <&pro_micro 111 GPIO_ACTIVE_HIGH>
-        ;
+        row-gpios
+            = <&pro_micro 24 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 22 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 20 GPIO_ACTIVE_HIGH>
+            ;
+
+        col-gpios
+            = <&pro_micro 104 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 100 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 29 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 115 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 113 GPIO_ACTIVE_HIGH>
+            , <&pro_micro 111 GPIO_ACTIVE_HIGH>
+            ;
+    };
 };
